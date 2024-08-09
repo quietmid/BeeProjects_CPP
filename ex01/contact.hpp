@@ -6,7 +6,7 @@
 /*   By: jlu <jlu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 17:36:03 by jlu               #+#    #+#             */
-/*   Updated: 2024/08/08 23:19:51 by jlu              ###   ########.fr       */
+/*   Updated: 2024/08/09 10:18:45 by jlu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 class Contact
 {
 	private:
-		int				idx;
+		// int				idx;
 		std::string		firstName;
 		std::string		lastName;
 		std::string		nickName;

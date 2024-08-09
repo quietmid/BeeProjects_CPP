@@ -1,7 +1,10 @@
 
-NAME = 
+NAME = phone
 
-SRC = 
+SRC = main.cpp \
+	  PhoneBook.cpp \
+	  contact.cpp 
+
 OBJ = $(SRC:.cpp=.o)
 CC = g++
 RM = rm -f

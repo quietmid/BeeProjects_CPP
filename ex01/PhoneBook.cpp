@@ -6,12 +6,13 @@
 /*   By: jlu <jlu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 17:33:50 by jlu               #+#    #+#             */
-/*   Updated: 2024/08/08 23:31:02 by jlu              ###   ########.fr       */
+/*   Updated: 2024/08/09 10:21:44 by jlu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
+// debug
 void	PhoneBook::print_contacts()
 {
 	int	idx = 0;
@@ -37,7 +38,7 @@ void	PhoneBook::add_contacts(std::string info[5])
 	contacts[idx].set_nickName(info[2]);
 	contacts[idx].set_pNumber(info[3]);
 	contacts[idx].set_darkSecret(info[4]);
-	if (this->idx < 8)
+	if (this->idx < 7)
 		this->idx++;
 	else
 		this->idx = 0;
