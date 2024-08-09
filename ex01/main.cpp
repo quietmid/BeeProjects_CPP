@@ -6,7 +6,7 @@
 /*   By: jlu <jlu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 17:33:45 by jlu               #+#    #+#             */
-/*   Updated: 2024/08/08 23:31:28 by jlu              ###   ########.fr       */
+/*   Updated: 2024/08/09 14:26:51 by jlu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int main()
   PhoneBook phonebook;
   std::string input;
   std::string info[5]; // 0 - first name 1 - last name 2 - nick name 3 - phonenumber 4 - dark secret
+  int choice;
+  int size = 0;
 
 
   while (input != "EXIT")
@@ -41,16 +43,27 @@ int main()
       std::getline(std::cin, info[4]);
       phonebook.add_contacts(info);
       std::cout << "Blackmail material saved" << std::endl;
-      phonebook.print_contacts();
+      if (size < 8)
+        size++;
+      // phonebook.print_contacts_debug();
     }
-    /*
-    if input = ADD
-      add starts
-    if input = SEARCH
-      search starts
-    if input = EXIt
-      return 0
-    */
+    else if (input == "SEARCH")
+    {
+      while (input != "EXIT" || !std::cin.eof())
+      {
+        phonebook.print_contacts(0, 0);
+        std::cout << "Please choose your contact by entering the index number" << std::endl;
+        std::getline(std::cin, input);
+        choice = std::stoi(input);
+        if (choice <= size)
+        {
+          phonebook.print_contacts(1, choice);
+          break ;
+        }
+        else
+          std::cout << "Please enter a valid choice" << std::endl;
+      }
+    }
     if (std::cin.eof())
     {
       std::cout << std::endl;
