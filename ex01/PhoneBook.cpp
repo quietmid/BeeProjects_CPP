@@ -6,7 +6,7 @@
 /*   By: jlu <jlu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 17:33:50 by jlu               #+#    #+#             */
-/*   Updated: 2024/08/09 14:31:57 by jlu              ###   ########.fr       */
+/*   Updated: 2024/08/09 15:45:25 by jlu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,15 @@ void	PhoneBook::print_contacts_debug()
 		std::cout << "Darkest Secret: " << contacts[idx].get_darkSecret() << std::endl;
 		idx++;
 	}
+}
+
+PhoneBook::~PhoneBook(void)
+{
+};
+
+void	PhoneBook::search_contacts()
+{
+	
 }
 
 void	PhoneBook::print_contacts(int opt, int choice)

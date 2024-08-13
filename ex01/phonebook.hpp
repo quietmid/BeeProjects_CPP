@@ -14,8 +14,9 @@ class PhoneBook
 	
 	public:
 		PhoneBook() : idx(0), size(0) {}
-		// ~PhoneBook(void);
+		~PhoneBook(void);
 		void	add_contacts(std::string info[5]);
 		void	print_contacts(int opt, int choice);
+		void	search_contacts();
 		void	print_contacts_debug();
 };
