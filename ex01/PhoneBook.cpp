@@ -6,7 +6,7 @@
 /*   By: jlu <jlu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 17:33:50 by jlu               #+#    #+#             */
-/*   Updated: 2024/08/09 15:45:25 by jlu              ###   ########.fr       */
+/*   Updated: 2024/08/14 16:57:00 by jlu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,6 @@ void	PhoneBook::print_contacts_debug()
 PhoneBook::~PhoneBook(void)
 {
 };
-
-void	PhoneBook::search_contacts()
-{
-	
-}
 
 void	PhoneBook::print_contacts(int opt, int choice)
 {
@@ -88,3 +83,29 @@ void	PhoneBook::add_contacts(std::string info[5])
 	if (this->size < 8)
 		this->size++;
 };
+int PhoneBook::space_checkers(std::string str)
+{
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		if (!isspace(str[i]))
+			return 1;
+	}
+	return (0);
+}
+bool PhoneBook::check_contacts()
+{
+	int idx;
+
+	idx = this->idx - 1;
+	if (contacts[idx].get_firstName().empty())
+		return (0);
+	if (contacts[idx].get_lastName().empty())
+		return (0);
+	if (contacts[idx].get_nickName().empty())
+		return (0);
+	if (contacts[idx].get_pNumber().empty())
+		return (0);
+	if (contacts[idx].get_darkSecret().empty())
+		return (0);
+	return (1);
+}

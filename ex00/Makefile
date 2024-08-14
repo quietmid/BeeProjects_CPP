@@ -3,9 +3,11 @@ NAME = megaphone
 
 SRC = megaphone.cpp
 OBJ = $(SRC:.cpp=.o)
-CC = g++
+CC = c++
 RM = rm -f
-CPPFLAGS = -Wall -Wextra -Werror 
+CPPFLAGS = -Wall -Wextra -Werror
+
+#-fsanitize=address -g
 
 all: $(NAME)
 
