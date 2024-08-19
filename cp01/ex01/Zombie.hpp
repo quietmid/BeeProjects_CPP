@@ -13,8 +13,8 @@ class Zombie
 	
 	public:
 		Zombie(); // default constructor so we can use to create an array of Zombie object
-		~Zombie();
-		Zombie(std::string zname);
+		~Zombie(); // destructor
+		Zombie(std::string zname); //parameterized constructor, used to initialize objects with specific values.
 		void announce();
 		void setName(std::string zname);
 };
