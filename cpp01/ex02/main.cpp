@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlu <jlu@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jlu <jlu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:35:59 by jlu               #+#    #+#             */
-/*   Updated: 2024/08/20 15:57:10 by jlu              ###   ########.fr       */
+/*   Updated: 2024/08/21 15:55:48 by jlu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,18 @@ cout << &i << endl;
 int main (void)
 {
     std::string myString = "HI THIS IS BRAIN";
-    /*
-        stringPTR: a pointer to myString
-        stringREF: a reference to myString
-    */
-   std::cout << myString << std::endl;
-   std::cout << &myString << std::endl;
+    std::string *stringPTR = &myString; //stores the memory address
+    std::string &stringREF = myString; // an alias to an existing variable 
+
+    std::cout << "Memory address of the following:" << std::endl;
+    std::cout << "Memory address of " << myString << " is " << &myString << std::endl;
+    std::cout << "Memory address held by stringPTR is " << stringPTR << std::endl;
+    std::cout << "Memory address held by stringREF is " << &stringREF << std::endl;
+    std::cout << "--------- I am a dividing line-----------------" << std::endl;
+    std::cout << "Value of the following:" << std::endl;
+    std::cout << "The value of myString is " << myString << std::endl;
+    std::cout << "The value pointed to by stringPTR is " << *stringPTR << std::endl;
+    std::cout << "The value of myString is " << stringREF << std::endl;
+
    return 0;
 }
