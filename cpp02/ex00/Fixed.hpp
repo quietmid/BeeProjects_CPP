@@ -10,7 +10,7 @@ class Fixed
 {
 	private:
 		int	fixedPointValue;
-		static const int fixedPointNum;
+		static const int frac_bits_value;
 	public:
 		Fixed();
 		Fixed (const Fixed &copy);

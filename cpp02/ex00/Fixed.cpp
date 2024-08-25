@@ -1,7 +1,7 @@
 
 #include "Fixed.hpp"
 
-const int Fixed::fixedPointNum = 8;
+const int Fixed::frac_bits_value = 8;
 
 Fixed::Fixed() : fixedPointValue(0)
 {
