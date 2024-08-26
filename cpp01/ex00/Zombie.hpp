@@ -5,6 +5,7 @@
 #define ZOMBIE_HPP
 
 #include <iostream>
+#include <string>
 
 class Zombie
 {
@@ -24,3 +25,6 @@ Zombie *newZombie(std::string name);
 void	randomChump(std::string name);
 
 #endif
+
+// stack: local variables and is automatically destroyed when the function exists
+// heap: manually managed by using new() and delete

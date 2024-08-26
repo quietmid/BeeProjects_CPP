@@ -5,12 +5,13 @@
 #define ZOMBIE_HPP
 
 #include <iostream>
+#include <string>
 
 class Zombie
 {
 	private:
 		std::string name;
-	
+
 	public:
 		Zombie(); // default constructor so we can use to create an array of Zombie object
 		~Zombie(); // destructor
@@ -24,5 +25,6 @@ Zombie *newZombie(std::string name);
 
 // creates a new Zombie object on the stack
 void	randomChump(std::string name);
+Zombie *zombieHorde(int N, std::string name);
 
 #endif
