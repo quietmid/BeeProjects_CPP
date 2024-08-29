@@ -7,9 +7,10 @@
 #include <iostream>
 #include <string>
 
+
 class ClapTrap
 {
-    private:
+    protected: // protected memebers are accessible by derived classes, such as ScavTap
         std::string name;
         int hp;
         int ep;
@@ -26,6 +27,7 @@ class ClapTrap
         //getter
         int getEp() const;
         int getHp() const;
+        int getDmg() const;
         std::string getName() const;
 };
 

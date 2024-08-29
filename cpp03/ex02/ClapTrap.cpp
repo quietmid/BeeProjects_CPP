@@ -29,7 +29,7 @@ void ClapTrap::attack(std::string const &target)
 	}
 	else
 	{
-		std::cout << "ClapTrap " << this->name << " is out of health point/energy!, shutting down" << std::endl;
+		std::cout << "ClapTrap " << this->name << " can't attack because it has no HP/EP" << std::endl;
 	}
 };
 
@@ -64,6 +64,11 @@ int ClapTrap::getEp() const
 int ClapTrap::getHp() const
 {
 	return (this->hp);
+};
+
+int ClapTrap::getDmg() const
+{
+	return (this->dmg);
 };
 
 std::string ClapTrap::getName() const
