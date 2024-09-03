@@ -1,7 +1,8 @@
 NAME = ex00
 
 SRC = main.cpp \
-	  animals.cpp 
+	  animals.cpp \
+	  WrongAnimal.cpp 
 
 OBJ = $(SRC:.cpp=.o)
 CC = c++
