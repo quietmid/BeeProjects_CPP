@@ -12,8 +12,8 @@ class HumanB
 {
 	private:
 		std::string name;
-	public:
 		Weapon* weapon;
+	public:
 		HumanB(std::string name);
 		~HumanB();
 		// action

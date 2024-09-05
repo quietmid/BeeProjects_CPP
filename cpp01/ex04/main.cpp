@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <sstream>
 
 #define ARGC 0
 #define INP 1
@@ -38,25 +39,28 @@ void	replaceStr(std::ofstream &fileOut, std::string s1, std::string s2, std::str
 
 int main (int argc, char **argv)
 {
-	std::ifstream file(argv[1]);
 	std::ofstream fileOut;
-	std::string s1 = argv[2];
-	std::string s2 = argv[3];
 	std::string fileName;
 	std::string fileReplace;
 	std::string buff;
+	std::stringstream buffer; // stringstream allows you to treat a string like an inp/op stream
 
 	if (argc != 4)
 		return (errors(ARGC));
-	if (!file.is_open() || s1.empty() || s2.empty())
+	std::ifstream file(argv[1]);
+	std::string s1 = argv[2];
+	std::string s2 = argv[3];
+	// std::cout << s1 << std::endl; // for testing
+	if (!file.is_open() || s1.empty())
 		return (errors(INP));
 	fileName = argv[1];
 	fileReplace = fileName + ".replace";
 	fileOut.open(fileReplace);
 	if (!fileOut.is_open())
 		return (errors(OUTP));
-	while (getline(file, buff))
-		replaceStr(fileOut, s1, s2, buff);
+	buffer << file.rdbuf(); // reads the entire file into buffer
+	buff = buffer.str(); // convert buffer into string
+	replaceStr(fileOut, s1, s2, buff);
 	file.close();
 	fileOut.close();
 	return 0;
