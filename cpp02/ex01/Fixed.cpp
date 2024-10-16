@@ -14,12 +14,15 @@ Fixed::Fixed(const Fixed& copy)
 	*this = copy;
 };
 
+/*input x 256 as frac_bit 8 = 256 in binary*/
+// converts the int input into the fixedpointvalue
 Fixed::Fixed(const int input)
 {
 	std::cout << "Int Constructor called" << std::endl;
 	this->fixedPointValue = input << this->frac_bits;
 };
 
+// converts the float input into fixedpointvalue
 Fixed::Fixed(const double input)
 {
 	std::cout << "Float Constructor called" << std::endl;
@@ -55,9 +58,7 @@ void Fixed::setRawBits( int const raw)
 
 float Fixed::toFloat(void) const
 {
-	double result;
-	result = (double)this->fixedPointValue / (double)(1 << this->frac_bits);
-	return (result);
+	return (float)this->fixedPointValue / (1 << this->frac_bits);
 };
 
 int Fixed::toInt(void) const

@@ -135,13 +135,13 @@ Fixed Fixed::operator /(Fixed const &src) const
 };
 
 //Incre/Decre Operator
-
+// incre the value and then return that value
 Fixed& Fixed::operator++() // Pre increment
 {
 	++fixedPointValue;
 	return (*this);
 };
-
+// safe the current value as temp, then increment it, return the temp. 
 Fixed Fixed::operator++(int) //Post increment;
 {
 	Fixed temp = *this;

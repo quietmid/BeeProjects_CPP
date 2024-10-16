@@ -1,5 +1,6 @@
  
 #include <iostream>
+#include <iomanip> //fixed and setprecision
 #include "Fixed.hpp"
 
 int main(void)
@@ -19,4 +20,6 @@ int main(void)
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.getRawBits() << " as FixedPointValue" << std::endl;
+	std::cout << "b is " << std::fixed << std::setprecision(2) << b.toFloat() << " as float" << std::endl;
 };

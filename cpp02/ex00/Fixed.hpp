@@ -12,10 +12,10 @@ class Fixed
 		int	fixedPointValue;
 		static const int frac_bits_value;
 	public:
-		Fixed();
-		Fixed (const Fixed &copy);
-		~Fixed();
-		Fixed & operator = (const Fixed &copy);
+		Fixed(); // default constructor
+		Fixed (const Fixed &copy); // copy constructor
+		~Fixed(); // destructor
+		Fixed & operator = (const Fixed &copy); // copy assignment operator
 		int	getRawBits(void) const;
 		void setRawBits( int const raw);
 };
