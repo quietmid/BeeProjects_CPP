@@ -11,21 +11,28 @@ class ClapTrap
 {
     private:
         std::string name;
-        int hp;
-        int ep;
-        int dmg;
+        unsigned int hp;
+        unsigned int ep;
+        unsigned int dmg;
     public:
+        //constructors & destructors
         ClapTrap();
         ClapTrap(std::string name);
+        ClapTrap(const ClapTrap &copy);
         ~ClapTrap();
+
+        //Assignment Operator
+        ClapTrap& operator=(const ClapTrap &copy);
+
+        //functions
         void attack(std::string const &target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
         //setter
-        void setDmg(int dmg);
+        void setDmg(unsigned int dmg);
         //getter
-        int getEp() const;
-        int getHp() const;
+        unsigned int getEp() const;
+        unsigned int getHp() const;
         std::string getName() const;
 };
 

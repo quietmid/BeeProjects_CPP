@@ -10,10 +10,15 @@
 class FragTrap : public ClapTrap
 {
 	public:
+	//constructors & destructors
 		FragTrap();
-		FragTrap(const FragTrap &copy);
 		FragTrap(std::string name);
+		FragTrap(const FragTrap &copy);
 		~FragTrap();
+
+	//assignment operator
+		FragTrap& operator=(const FragTrap &copy);
+	//functions
 		void highFivesGuys(void);
 };
 

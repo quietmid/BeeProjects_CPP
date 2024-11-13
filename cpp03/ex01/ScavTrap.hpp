@@ -11,14 +11,26 @@
 class ScavTrap : public ClapTrap
 {
 	private:
-		int gateKeeperMode;
+		bool gateKeeperMode;
 	public:
+	// constructor & destructor	
 		ScavTrap();
-		ScavTrap(const ScavTrap &copy);
 		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap &copy);
 		~ScavTrap();
+
+	//assignement operator
+		ScavTrap& operator=(const ScavTrap &copy);
+	
+	// functions
 		void attack(std::string const &target);
 		void guardGate();
+	//getter
+		void getGateKeeperMode() const;
 };
-
+/*
+virtual functions in the base class allows the derived class to override the methods in the base class
+override functions in the derived class ensures that the method is correctly overriding a virutal method from the base class, providing compile-time safety.
+In C++, the compiler uses the function signature to determine which virtual function is being overridden. The function signature includes the function name, the parameter types, and the const-qualification (if any).
+*/
 #endif
