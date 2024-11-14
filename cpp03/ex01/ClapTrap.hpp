@@ -19,13 +19,13 @@ class ClapTrap
         ClapTrap();
         ClapTrap(std::string name);
         ClapTrap(const ClapTrap &copy);
-        ~ClapTrap();
+        virtual ~ClapTrap();
 
         //Assignment Operator
         ClapTrap& operator=(const ClapTrap &copy);
 
         //functions
-        void attack(std::string const &target);
+        virtual void attack(std::string const &target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
         //setter

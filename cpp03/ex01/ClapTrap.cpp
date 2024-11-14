@@ -52,7 +52,7 @@ void ClapTrap::attack(std::string const &target)
 	}
 	else
 	{
-		std::cout << "ClapTrap " << this->name << " is out of health point/energy!, shutting down" << std::endl;
+		std::cout << "ClapTrap " << this->name << " is out of health point/energy! shutting down" << std::endl;
 	}
 };
 
