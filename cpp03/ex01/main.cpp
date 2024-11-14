@@ -41,5 +41,15 @@ int main()
 	_new2.getGateKeeperMode();
 	std::cout << _new.getName() << "'s energy points: " << _new.getEp() << std::endl;
 	std::cout << _new2.getName() << "'s energy points: " << _new2.getEp() << std::endl;
+	
+	std::cout << "\n--- Creating copies ---" << std::endl;
+    ScavTrap bard("Bard");  
+    ScavTrap bard_copy = bard;
+	std::cout << std::endl;
+    ScavTrap bard_copy2(bard_copy);
+    std::cout << std::endl;
+    ScavTrap wizard ("Wizard");
+    ScavTrap wizard_copy(wizard);
+	std::cout << "----destructors-----" << std::endl;
 	return 0;
 };

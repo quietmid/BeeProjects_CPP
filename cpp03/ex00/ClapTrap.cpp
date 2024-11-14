@@ -26,7 +26,7 @@ ClapTrap::ClapTrap(std::string name)
 ClapTrap::ClapTrap(const ClapTrap &copy)
 {
 	*this = copy;
-	std::cout << "ClapTrap " << this->name << " is born! I am here to clap you" << std::endl;
+	std::cout << "ClapTrap Copy Constructor " << this->name << " is called" << std::endl;
 };
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &copy) 

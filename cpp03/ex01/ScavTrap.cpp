@@ -41,6 +41,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &copy)
 		this->hp = copy.hp;
 		this->ep = copy.ep;
 		this->dmg = copy.dmg;
+		this->gateKeeperMode = copy.gateKeeperMode;
 		std::cout << "ScavTrap copy assignment operator called for " << this->name << std::endl;
 	}
 	return *this;

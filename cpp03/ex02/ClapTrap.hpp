@@ -23,7 +23,6 @@ class ClapTrap
 
         //Assignment Operator
         ClapTrap& operator=(const ClapTrap &copy);
-
         //functions
         virtual void attack(std::string const &target);
         void takeDamage(unsigned int amount);

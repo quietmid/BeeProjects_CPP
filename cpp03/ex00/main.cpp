@@ -19,5 +19,23 @@ int main()
 	_new.setDmg(3);
 	_new.attack("more poor people");
 	std::cout << _new.getName() << "'s energy points: " << _new.getEp() << std::endl;
+
+	std::cout << "\n--- Testing Copy Assignment ---" << std::endl;
+    ClapTrap archer("Archer");
+    ClapTrap archer_copy = archer;
+    archer_copy.attack("Archer");
+    archer.takeDamage(10);
+	archer_copy.attack("Knight");
+
+    std::cout << "\n--- Testing Copy Constructor ---" << std::endl;
+	ClapTrap healer("Priest");
+    ClapTrap knight_copy(_new);
+    knight_copy.attack("Healer");
+    healer.takeDamage(15);
+
+    knight_copy.beRepaired(25);
+    archer.beRepaired(10);
+    std::cout << std::endl;
+
 	return 0;
 };
