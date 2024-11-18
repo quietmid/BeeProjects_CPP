@@ -23,7 +23,7 @@ class WrongAnimal
 		std::string const &getType() const;
 		void setType(std::string &type);
 		// member func
-		virtual void makeSound() const;
+		void makeSound() const;
 };
 
 #endif

@@ -19,6 +19,7 @@ class WrongCat : public WrongAnimal
 		//Assignment Operator
 		WrongCat &operator=(const WrongCat &copy);
 		//member func
+		void makeSound() const;
 };
 
 #endif

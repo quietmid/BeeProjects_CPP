@@ -31,3 +31,8 @@ WrongCat& WrongCat::operator=(const WrongCat &copy)
     }
     return (*this);
 }
+
+void WrongCat::makeSound() const
+{
+	std::cout << "what you looking at?" << std::endl;
+}

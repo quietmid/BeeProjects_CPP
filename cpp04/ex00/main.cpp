@@ -46,6 +46,7 @@ int main()
 	delete wrong;
 	delete wrg;
 
+	//2 dog destructors called because of copy constructor
 	return 0;
 }
 
