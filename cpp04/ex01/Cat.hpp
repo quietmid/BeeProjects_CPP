@@ -15,7 +15,6 @@ class Cat : public Animal
 	public:
 		//Constructor, Destructor, Copy Constructor
 		Cat();
-		Cat(std::string &type);
 		Cat(Cat const &copy);
 		~Cat();
 

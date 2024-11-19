@@ -5,6 +5,26 @@
 #include "Brain.hpp"
 #include <iostream>
 
+// int main()
+// {
+// 	Cat cat;
+// 	cat.setIdea(0, "Hi!");
+// 	cat.setIdea(2, "2!");
+// 	cat.setIdea(1, "1!");
+// 	std::cout << cat.getIdea(0) << std::endl;
+// 	std::cout << cat.getIdea(1) << std::endl;
+// 	std::cout << cat.getIdea(2) << std::endl;
+
+// 	Cat cat2;
+
+// 	cat2 = cat;
+// 	cat2.setIdea(2, "FOO!");
+// 	std::cout << cat2.getIdea(0) << std::endl;
+// 	std::cout << cat2.getIdea(1) << std::endl;
+// 	std::cout << cat2.getIdea(2) << std::endl;	
+// 	return (0);
+// }
+
 int main()
 {
 	const int animalMax = 4;
@@ -40,7 +60,10 @@ int main()
 	std::cout << "meta[0]'s mind: " << cat->getIdea(1) << std::endl;
 	meta[1]->makeSound();
 	auto dog = dynamic_cast<Dog*>(meta[1]);
-	std::cout << "meta[1]'s mind: " << dog->getIdea(1) << std::endl;
+	if (!dog)
+		std::cout << "wrong type of animal" << std::endl;
+	else
+		std::cout << "meta[1]'s mind: " << dog->getIdea(1) << std::endl;
 
 	std::cout << "\n-----deleting first round of experiements ------" << std::endl;
 	for (int i = 0; i < animalMax; i++)
@@ -83,6 +106,7 @@ int main()
 	return 0;
 }
 
+
 /* too avoid slicing
 int main() {
     Dog ogDog;
@@ -108,11 +132,5 @@ To avoid slicing when working with inheritance:
 Use pointers or references to the base class (Animal* or Animal&) when you need to reference derived class objects (Dog).
 This approach will maintain the derived class’s (Dog) behavior and prevent loss of data or functionality.
 This design leverages polymorphism and ensures that makeSound() and other overridden functions in derived classes are called correctly.
-
-
-
-
-
-
 
 */

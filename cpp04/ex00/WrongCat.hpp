@@ -13,7 +13,7 @@ class WrongCat : public WrongAnimal
 	public:
 		//Constructor, Destructor, Copy Constructor
 		WrongCat();
-		WrongCat(std::string &type);
+
 		WrongCat(WrongCat const &copy);
 		~WrongCat();
 		//Assignment Operator

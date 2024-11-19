@@ -6,11 +6,6 @@ WrongCat::WrongCat()
 	std::cout << "The WrongCat constructor called" << std::endl;
 };
 
-WrongCat::WrongCat(std::string &type)
-{
-	this->type = type;
-	std::cout << "The WrongCat parametric constructor called" << std::endl;
-};
 
 WrongCat::WrongCat(const WrongCat &copy) : WrongAnimal(copy)
 {

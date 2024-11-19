@@ -45,7 +45,10 @@ int main()
 	std::cout << "meta[0]'s mind: " << cat->getIdea(1) << std::endl;
 	meta[1]->makeSound();
 	auto dog = dynamic_cast<Dog*>(meta[1]);
-	std::cout << "meta[1]'s mind: " << dog->getIdea(1) << std::endl;
+	if (!dog)
+		std::cout << "wrong type of animal" << std::endl;
+	else
+		std::cout << "meta[1]'s mind: " << dog->getIdea(1) << std::endl;
 
 	std::cout << "\n-----deleting first round of experiements ------" << std::endl;
 	for (int i = 0; i < animalMax; i++)

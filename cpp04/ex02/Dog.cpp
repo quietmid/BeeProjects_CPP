@@ -7,12 +7,6 @@ Dog::Dog()
 	std::cout << "The DAWG default constructor called" << std::endl;
 };
 
-Dog::Dog(std::string &type)
-{
-	this->type = type;
-	std::cout << "The DAWG parametric constructor called" << std::endl;
-};
-
 Dog::Dog(Dog const &copy) : AAnimal(copy), brain(new Brain(*copy.brain))
 {
 	// *this = copy;

@@ -22,7 +22,6 @@ class Animal
 		Animal& operator=(const Animal &copy);
 		//setter and getter
 		std::string const &getType() const;
-		void setType(std::string &type);
 		//member func
 		virtual void makeSound() const;
 };

@@ -6,6 +6,7 @@
 #include "WrongCat.hpp"
 #include <iostream>
 
+
 int main()
 {
 	std::cout << "-------Constructors called------" << std::endl;
@@ -49,7 +50,7 @@ int main()
 	delete wrong;
 	delete wrg;
 
-	//2 dog destructors called because of copy constructor
+	//2 dog and cat destructors called because of copy constructor
 	return 0;
 }
 

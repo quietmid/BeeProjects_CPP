@@ -7,12 +7,6 @@ WrongAnimal::WrongAnimal()
 	std::cout << "The WrongAnimal default constructor is called" << std::endl;
 };
 
-WrongAnimal::WrongAnimal(std::string &type)
-{
-	this->type = type;
-	std::cout << "The WrongAnimalparametric constructor is called" << std::endl;
-};
-
 WrongAnimal::WrongAnimal(WrongAnimal const &type)
 {
 	*this = type;
@@ -36,11 +30,6 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal &copy)
 std::string const &WrongAnimal::getType() const
 {
 	return (this->type);
-};
-
-void WrongAnimal::setType(std::string &type)
-{
-	this->type = type;
 };
 
 void WrongAnimal::makeSound() const

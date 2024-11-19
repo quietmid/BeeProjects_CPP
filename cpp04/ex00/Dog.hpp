@@ -13,7 +13,6 @@ class Dog : public Animal
 	public:
 		//Constructor, Destructor, Copy Constructor
 		Dog();
-		Dog(std::string &type);
 		Dog(Dog const &copy);
 		~Dog();
 
@@ -21,7 +20,7 @@ class Dog : public Animal
         Dog &operator=(Dog const &copy);
 
 		//member func
-		void makeSound() const;
+		void makeSound() const override;
 };
 
 #endif

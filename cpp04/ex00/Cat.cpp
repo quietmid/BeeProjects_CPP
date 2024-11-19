@@ -6,12 +6,6 @@ Cat::Cat()
 	std::cout << "The Cat default constructor called" << std::endl;
 };
 
-Cat::Cat(std::string &type)
-{
-	this->type = type;
-	std::cout << "The Cat parametric constructor called" << std::endl;
-};
-
 Cat::Cat(Cat const &copy) : Animal(copy)
 {
 	// *this = copy;
