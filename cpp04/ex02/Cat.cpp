@@ -14,9 +14,9 @@ Cat::Cat(std::string &type)
 	std::cout << "The Cat parametric constructor called" << std::endl;
 };
 
-Cat::Cat(Cat const &copy)
+Cat::Cat(Cat const &copy) : AAnimal(copy), brain(new Brain(*copy.brain))
 {
-	*this = copy;
+	// *this = copy;
 	std::cout << "The cat COPY constructor called" << std::endl;
 };
 

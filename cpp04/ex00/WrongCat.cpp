@@ -14,7 +14,7 @@ WrongCat::WrongCat(std::string &type)
 
 WrongCat::WrongCat(const WrongCat &copy) : WrongAnimal(copy)
 {
-	*this = copy;
+	// *this = copy;
 	std::cout << "The WrongCat COPY constructor called" << std::endl;
 };
 

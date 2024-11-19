@@ -37,6 +37,9 @@ int main()
 	Dog jk;
 	Dog k(jk);
 	k.makeSound();
+	Cat cat;
+	Cat c(cat);
+	c.makeSound();
 
 	std::cout << "----------Destructors---------" << std::endl;
 	delete meta;

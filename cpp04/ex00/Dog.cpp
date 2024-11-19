@@ -14,7 +14,7 @@ Dog::Dog(std::string &type)
 
 Dog::Dog(Dog const &copy) : Animal(copy)
 {
-	*this = copy;
+	// *this = copy;
 	std::cout << "The DAWG copy constructor called" << std::endl;
 };
 
