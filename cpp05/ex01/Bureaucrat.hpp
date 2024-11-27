@@ -3,9 +3,12 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include "Form.hpp"
 
 #define EXCEPTION_TOO_HIGH "Grade is too high! The highest grade is 1."
 #define EXCEPTION_TOO_LOW "Grade is too low! The lowest grade is 150."
+
+class Form;
 
 class Bureaucrat
 {
@@ -28,6 +31,7 @@ class Bureaucrat
 		// functions
 		void gradeGoUp();
 		void gradeGoDown();
+		void signForm(Form f);
 
 		// Exception classes
 		/* what() is a member func of std::exception and with the override keyword, it overrides the what() with the either of these exception

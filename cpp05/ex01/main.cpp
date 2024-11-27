@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main() {
     try {
@@ -8,10 +9,12 @@ int main() {
         std::cout << bob << std::endl;
 		bob.gradeGoUp();
         std::cout << bob << std::endl;
+        Form a;
+        bob.signForm(a);
 		std::cout << "-------testing Alice-------" << std::endl;
         Bureaucrat alice("Alice", 0); // This will throw an exception
         std::cout << alice << std::endl;
-        std::cout << "-------testing Charlie-------" << std::endl;
+        std::cout << "-------testing Charlie-------" << std::endl; // be skipped because of the exception
         Bureaucrat charlie("Charlie", 140);
         std::cout << charlie << std::endl;
     } catch (const std::exception &e) {

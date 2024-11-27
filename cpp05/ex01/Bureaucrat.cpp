@@ -59,6 +59,15 @@ void Bureaucrat::gradeGoDown()
 	std::cout << "Grade down by 1 pt" << std::endl;
 }
 
+void Bureaucrat::signForm(Form f)
+{
+	f.beSigned(*this);
+	if (f.getSigned()) { 
+		std::cout << _name << " signed " << f.getName()<<std::endl;
+	} else {
+		std::cout << _name << " cannot sign " << f.getName() << " because grades too low" << std::endl;
+	}
+}
 
 std::ostream& operator<<(std::ostream &out, const Bureaucrat &b) 
 {
