@@ -2,7 +2,7 @@
 
 Bureaucrat::Bureaucrat()
 {
-	;
+	// std::cout << "Bureaucrat Default Constructor Called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
@@ -12,14 +12,16 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 	else if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	_grade = grade;
+	// std::cout << "Bureaucrat Param Constructor Called" << std::endl;
 }
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy._grade)
 {
-	;
+	// std::cout << "Bureaucrat Copy Constructor Called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
+	// std::cout << "Bureaucrat Destructor Called" << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy)
@@ -63,7 +65,7 @@ void Bureaucrat::signForm(Form f)
 {
 	f.beSigned(*this);
 	if (f.getSigned()) { 
-		std::cout << _name << " signed " << f.getName()<<std::endl;
+		std::cout << _name << " signed " << f.getName() <<std::endl;
 	} else {
 		std::cout << _name << " cannot sign " << f.getName() << " because grades too low" << std::endl;
 	}

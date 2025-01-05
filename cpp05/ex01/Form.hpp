@@ -17,6 +17,7 @@ class Form
 	public:
 		//constructor, destructor, copy constructor
 		Form();
+		Form(std::string name, int gradeToSign, int gradeToExecute);
 		Form(const Form &copy);
 		~Form();
 		//assignement operator
@@ -24,22 +25,26 @@ class Form
 		//setter and getter
 		std::string getName() const;
 		bool getSigned() const;
+		int getGrade() const;
+		int getExecuteGrade() const;
+
 		//functions
 		void beSigned(const Bureaucrat &b);
 		//Exception classes
 		class GradeTooHighException : public std::exception {
 			public:
 				virtual const char* what() const noexcept override {
-					return "Grade is too high! The highest grade is 1.";
+					return "Grade is too high to be signed?";
 				}
 		};
 
 		class GradeTooLowException : public std::exception {
 			public:
 				virtual const char* what() const noexcept override {
-					return "Grade is too low! The lowest grade is 150.";
+					return "Grade is too low, what were you even thinking?";
 				}
 		};
-};
 
-// std::ostream& operator<<(std::ostream &out, const Form &f);
+	//the friend keyword, the operator<< function is allowed to access the private members of the Form class, so enable the function to print out all the info 
+	friend std::ostream& operator<<(std::ostream &out, const Form &f);
+};

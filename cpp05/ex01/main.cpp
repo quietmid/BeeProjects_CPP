@@ -21,11 +21,33 @@ int main() {
         std::cerr << e.what() << std::endl;
     }
     try{
-        std::cout << "-------testing Bob2-------" << std::endl;
-        Bureaucrat bob2("Bob2", 25);
-        std::cout << bob2 << std::endl;
-        bob2.gradeGoDown();
-        std::cout << bob2 << std::endl;
+        //no exception here
+        std::cout << "-------testing Form-------" << std::endl;
+        Bureaucrat john("John", 15);
+        Form sheet("FormA", 25, 50);
+        std::cout << john << std::endl;
+        john.gradeGoDown();
+        std::cout << john << std::endl;
+        sheet.beSigned(john);
+    } catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
+    }
+    try{
+        std::cout << "------- testing Form with exception ------" << std::endl;
+        Bureaucrat law("Law", 75);
+        Form b("your life", 15, 75);
+        std::cout << law << std::endl;
+        std::cout << law.getName() << " trying to get the " << b.getName() << " to be signed... can he though?" << std::endl; 
+        b.beSigned(law);
+    } catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
+    }
+    try {
+        std::cout << "----------- More testing ------------" << std::endl;
+        Bureaucrat cey("Cece", 60);
+        Form c("legal rights", 20, 75);
+        std::cout << c;
+        cey.signForm(c);
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
     }
