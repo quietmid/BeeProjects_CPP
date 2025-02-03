@@ -10,7 +10,7 @@ int main() {
     // check if ShrubbberyCreationForm is concrete and it can be instantiated?
 
     std::cout << "-----ShrubberyCreationForm-----" << std::endl;
-    Bureaucrat john("John", 145);
+    Bureaucrat john("John", 45);
     ShrubberyCreationForm shrubbery("garden");
     shrubbery.execute(john);
 
