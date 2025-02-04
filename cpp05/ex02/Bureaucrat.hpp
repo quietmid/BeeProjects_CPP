@@ -32,6 +32,7 @@ class Bureaucrat
 		void gradeGoUp();
 		void gradeGoDown();
 		void signForm(AForm f);
+		void executeForm(AForm const & form);
 
 		// Exception classes
 		/* what() is a member func of std::exception and with the override keyword, it overrides the what() with the either of these exception

@@ -19,3 +19,13 @@ PresidentialPardonForm::~PresidentialPardonForm()
 {
 	//std::cout << "PresidentialPardonForm destructor" << std::endl;
 }
+
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const
+{
+	if (executor.getGrade() > getExecuteGrade())
+		throw AForm::GradeTooLowException();
+	if (getSigned() == false)
+		throw AForm::FormNotSignedException();
+
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+}

@@ -20,19 +20,23 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	// std::cout << "ShrubbberyCreationForm Destructor Called" << std::endl;
 }
 
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy)
+{
+	if (this != &copy)
+	{
+		_target = copy._target;
+	}
+	return *this;
+}
+
 void ShrubberyCreationForm::execute(Bureaucrat const & executor)	const
 {
-	try // need to add || getSigned == false
-	{
-		if (executor.getGrade() > getExecuteGrade())
-			throw AForm::GradeTooLowException();
-	} catch (const std::exception &e) {
-		std::cerr << e.what() << std::endl;
-		return;
-	}
+	if (executor.getGrade() > getExecuteGrade())
+		throw AForm::GradeTooLowException();
+	if (getSigned() == false)
+		throw AForm::FormNotSignedException();
 
 	std::string filename = _target + "_shrubbery";
-
 	std::ofstream myFile(filename);
 	myFile << "  ___" << std::endl;
 	myFile << "_/  |________   ____   ____   ______" << std::endl;
@@ -40,6 +44,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)	const
 	myFile << " |  |  |  | \\/\\  ___/\\  ___/ \\___ \\ " << std::endl;
 	myFile << " |__|  |__|    \\___  >\\___  >____  >" << std::endl;
 	myFile << "                   \\/     \\/     \\/ " << std::endl;
-
 	myFile.close();
 }
