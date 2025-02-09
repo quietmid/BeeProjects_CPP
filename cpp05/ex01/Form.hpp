@@ -14,9 +14,9 @@ class Form
 		bool _signed;
 		const int _gradeToSign;
 		const int _gradeToExecute;
+		Form();
 	public:
 		//constructor, destructor, copy constructor
-		Form();
 		Form(std::string name, int gradeToSign, int gradeToExecute);
 		Form(const Form &copy);
 		~Form();

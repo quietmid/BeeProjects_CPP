@@ -11,23 +11,26 @@ int main() {
     // AForm form("Form", 1, 1);
     // check if ShrubbberyCreationForm is concrete and it can be instantiated?
 
-    std::cout << "-----ShrubberyCreationForm-----" << std::endl;
+    std::cout << YELLOW_BG << "-----ShrubberyCreationForm-----" << RESET << std::endl;
     Bureaucrat john("John", 139);
     ShrubberyCreationForm shrubbery("garden");
-    shrubbery.beSigned(john);
+    john.signForm(shrubbery);
     john.executeForm(shrubbery);
     john.gradeGoUp();
     john.gradeGoUp();
     john.executeForm(shrubbery);
-    std::cout << "-----RobotomyRequestnForm-----" << std::endl;
-    Bureaucrat jane("Jane", 43);
+    std::cout << YELLOW_BG << "-----RobotomyRequestnForm-----" << RESET << std::endl;
+    Bureaucrat jane("Jane", 55);
+    Bureaucrat robert("Robert", 35);
     RobotomyRequestForm robot("robot");
-    robot.beSigned(jane);
+    jane.signForm(robot);
     jane.executeForm(robot);
-    std::cout << "-----PresidentialPardonForm-----" << std::endl;
-    Bureaucrat donald("Trumpf",7);
+    std::cout << YELLOW_BG << "     ---- but Robert has a higher grade ----" << RESET << std::endl;
+    robert.executeForm(robot);
+    std::cout << YELLOW_BG << "-----PresidentialPardonForm-----" << RESET << std::endl;
+    Bureaucrat donald("Trumpf", 7);
     PresidentialPardonForm pardon("felonies");
-    pardon.beSigned(donald);
+    donald.signForm(pardon);
     donald.executeForm(pardon);
     return 0;
 }

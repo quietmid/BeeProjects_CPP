@@ -45,10 +45,7 @@ void Form::beSigned(const Bureaucrat &b)
 	try 
 	{
 		if (b.getGrade() <= _gradeToSign)
-		{
 			_signed = true;
-			std::cout << b.getName() << "'s " << _name << " just got signed!" << std::endl;
-		}
 		else
 			throw Form::GradeTooLowException();
 	} catch (const std::exception &e) {
@@ -73,8 +70,8 @@ int Form::getExecuteGrade() const
 
 std::ostream& operator<<(std::ostream &out, const Form &f)
 {
-	out << "Form: " << f.getName() << " is " << (f.getSigned() ? "signed" : "not signed") << "/n"
-		<< ", grade to sing: " << f.getGrade() << "/n"
-		<< ", grade to execute:  " << f.getExecuteGrade() << std::endl;
+	out << "Form: " << f.getName() << " is " << (f.getSigned() ? "signed" : "not signed") << "\n"
+		<< "grade to sign: " << f.getGrade() << "\n"
+		<< "grade to execute:  " << f.getExecuteGrade() << std::endl;
 	return out;
 }
