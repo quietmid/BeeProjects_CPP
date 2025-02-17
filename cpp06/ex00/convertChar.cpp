@@ -9,7 +9,7 @@ bool ScalarConverter::isChar(const std::string &str)
 	return false;
 }
 
-char ScalarConverter::toChar(const std::string &str) 
+void ScalarConverter::toChar(const std::string &str) 
 {
 	// need to conver the string to
 	// char: c,a,* 
