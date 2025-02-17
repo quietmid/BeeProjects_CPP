@@ -30,14 +30,17 @@ void ScalarConverter::convert(const std::string &str)
 	// if its not displayable then display 'non displayable'
 	// char: c,a,* 
 	// int: 0
-	if (x.isInt(str))
-	{
-		std::cout << "int: " << str << " true " << std::endl;
-	}
-	else 
-	{
-		std::cout << str << " not an int" << std::endl;
-	}
+	x.toInt(str);
+	// if (x.isInt(str))
+	// {
+	// 	std::cout << "int: " << str << " true " << std::endl;
+	// 	x.toInt(str);
+	// }
+	// else 
+	// {
+	// 	std::cout << str << " not an int" << std::endl;
+	// 	x.toInt(str);
+	// }
 	// float: 42.0F 
 	// double: 42.0
 

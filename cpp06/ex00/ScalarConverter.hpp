@@ -17,10 +17,10 @@ class ScalarConverter
 		bool isFloat(const std::string &str);
 		bool isDouble(const std::string &str);
 
-		char toChar(const std::string &str);
-		int toInt(const std::string &str);
-		float toFloat(const std::string &str);
-		double toDouble(const std::string &str);
+		void toChar(const std::string &str);
+		void toInt(const std::string &str);
+		void toFloat(const std::string &str);
+		void toDouble(const std::string &str);
 
 	public:
 		ScalarConverter();

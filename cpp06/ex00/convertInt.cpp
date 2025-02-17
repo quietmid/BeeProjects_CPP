@@ -10,10 +10,17 @@ bool ScalarConverter::isInt(const std::string &str)
 	std::regex intPattern(R"(^[+-]?\d+$)");
 	if (std::regex_match(str, intPattern))
 	{
-		long long value = std::stoll(str);
-		if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())
-            return false;
-		return true;
+		try
+		{
+			long long value = std::stoll(str);
+			if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())
+				return false;
+			return true;
+		}
+		catch(const std::exception& e)
+		{
+			return false;
+		}
 	}
 	else if (dotPos != std::string::npos)
 	{
@@ -28,10 +35,44 @@ bool ScalarConverter::isInt(const std::string &str)
 			if (str[i] != '0')
 				return false;
 		}
-		long long value = std::stoll(str.substr(0, dotPos));
-		if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())
+		try
+		{
+			long long value = std::stoll(str.substr(0, dotPos));
+			if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())
+				return false;
+			return true;
+		} catch (const std::exception& e)
+		{
 			return false;
-		return true;
+		}
 	}
 	return false;
+}
+
+void ScalarConverter::toInt(const std::string &str)
+{
+	if (str.empty())
+	{
+		std::cout << "int: impossible" << std::endl;
+		return;
+	}
+	size_t dotPos = str.find('.');
+	size_t fPos = str.find('f');
+	std::string intStr;
+
+	if (isInt(str))
+	{
+		if (dotPos != std::string::npos)
+			intStr = str.substr(0, dotPos);
+		else if (fPos != std::string::npos)
+			intStr = str.substr(0, fPos);
+		else
+			intStr = str;
+		std::cout << "int: " << intStr << std::endl;
+	}
+	else 
+	{
+		std::cout << "int: impossible" << std::endl;
+		return ;
+	}
 }
