@@ -2,18 +2,18 @@
 
 Brain::Brain()
 {
-	// std::cout << "Brain Default Constructor gave you 10 points of IQ" << std::endl;
+	std::cout << "Brain Default Constructor gave you 10 points of IQ" << std::endl;
 };
 
 Brain::Brain(const Brain &copy)
 {
 	*this = copy;
-	// std::cout << "Brain Copy Constructor your IQ goes up by 2%" << std::endl;
+	std::cout << "Brain Copy Constructor your IQ goes up by 2%" << std::endl;
 };
 
 Brain::~Brain()
 {
-	// std::cout << "Brain Destructor says you just lost 10 points of IQ" << std::endl;
+	std::cout << "Brain Destructor says you just lost 10 points of IQ" << std::endl;
 };
 
 Brain& Brain::operator=(const Brain &copy)

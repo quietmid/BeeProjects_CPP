@@ -1,0 +1,37 @@
+name: C++ 06 Build and Test
+
+# runs the test only when the code in the cpp06/ex00 directory is changed
+on:
+  push:
+    paths:
+       - 'cpp06/ex00/**'
+  pull_request:
+    paths:
+       - 'cpp06/ex00/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+# The steps that the job will execute
+# This is needed because Github Action doesn't automtically install clone code
+# action/checkout@v3 is used to clone the repository
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+# Install dependencies as the default environment doesn't have g++ or make
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y g++ cmake
+
+    - name: Compile the project
+      working-directory: cpp06/ex00
+      run: make
+
+    - name: Run Tests
+      working-directory: cpp06/ex00
+      run: ./convert_test.sh
+
+    - name: Clean up
+      working-directory: cpp06/ex00
+      run: make fclean
