@@ -2,7 +2,6 @@ NAME = convert
 
 SRC = main.cpp \
 	  ScalarConverter.cpp \
-	  convertInt.cpp
 
 OBJ = $(SRC:.cpp=.o)
 CC = c++

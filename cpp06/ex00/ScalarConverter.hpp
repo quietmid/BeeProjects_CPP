@@ -1,8 +1,8 @@
 #pragma once
 
 #include <iostream>
-#include <regex>
-#include <limits>
+#include <limits> //min max
+#include <iomanip> //precision
 
 # define MIN_INT std::numeric_limits<int>::min() //-2147483648
 # define MAX_INT std::numeric_limits<int>::max() //2147483647
