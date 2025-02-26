@@ -68,13 +68,70 @@ type ScalarConverter::getType(const std::string str)
 	if (dot > 1 || hasChar > 1 || sign > 1)
 		return INVALID;
 	else if (afterDot && str.back() != 'f')
-		return DOUBLE;
+	{
+		try {
+			double num = std::stod(str);
+			if (num >= MIN_DOUBLE && num <= MAX_DOUBLE)
+				return DOUBLE;
+		} catch (std::exception &e) {
+			std::cerr << e.what() << std::endl;
+			return INVALID;
+		}
+	}
 	else if (afterDot && str.back() == 'f')
-		return FLOAT;
+	{
+		try {
+			float num = std::stof(str);
+			if (num >= MIN_FLOAT && num <= MAX_FLOAT)
+				return FLOAT;
+		} catch (std::exception &e) {
+			std::cerr << e.what() << std::endl;
+			return INVALID;
+		}
+	}
 	else if (hasChar)
 		return CHAR;
 	else
-		return INT;
+	{
+		try {
+			int num = std::stoi(str);
+			if (num >= MIN_INT && num <= MAX_INT)
+				return INT;
+		} catch (std::exception &e) {
+			std::cerr << e.what() << std::endl;
+			return INVALID;
+		}
+	}
+	return INVALID;
+}
+
+void printType(type t)
+{
+	std::cout << "type: ";
+	switch(t) 
+	{
+		case (CHAR):
+			std::cout << "Char" << std::endl;
+			break;
+		case (INT):
+			std::cout << "Int" << std::endl;
+			break;
+		case (FLOAT):
+			std::cout << "Float" << std::endl;
+			break;
+		case (SPECIALFLOAT):
+			std::cout << "Float" << std::endl;
+			break;
+		case (DOUBLE):
+			std::cout << "Double" << std::endl;
+			break;
+		case (SPECIALDOUBLE):
+			std::cout << "Double" << std::endl;
+			break;
+		case (INVALID):
+			std::cout << "Invalid Input" << std::endl;
+			break;
+	}
 }
 
 void ScalarConverter::convert(const std::string &str) 
@@ -87,7 +144,7 @@ void ScalarConverter::convert(const std::string &str)
 		return;
 	}
 	type t = getType(str);
-	std::cout << "type: " << t << std::endl;
+	printType(t);
 	char _c = 0;
 	int _i = 0;
 	float _f = 0.0f;

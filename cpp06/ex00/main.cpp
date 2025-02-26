@@ -1,5 +1,6 @@
 #include "ScalarConverter.hpp"
 
+// remember to test 2147483647 + 1
 int main(int argc, char **argv)
 {
 

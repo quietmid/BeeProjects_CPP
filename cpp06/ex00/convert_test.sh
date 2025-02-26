@@ -1,5 +1,4 @@
 #!/bin/bash
-
 Function to run a test case
 run_test() {
     input="$1"
@@ -22,12 +21,13 @@ run_test() {
 }
 
 # Test cases int
-run_test "42" "type: 1"
-run_test "43.5" "type: 4"
-run_test "+0" "type: 1"
-run_test "nanf" "type: 3"
-run_test "1.00000000000f" "type: 2"
-run_test "a" "type: 0"
-run_test "a.a" "type: -1"
+run_test "42" "type: Int"
+run_test "43.5" "type: Double"
+run_test "+0" "type: Int"
+run_test "nanf" "type: Float"
+run_test "1.00000000000f" "type: Float"
+run_test "a" "type: Char"
+run_test "a.a" "type: Invalid Input"
+run_test "2147483648" "type: Invalid Input"
 
 echo "🎉 All tests passed!"
