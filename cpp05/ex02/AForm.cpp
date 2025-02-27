@@ -79,8 +79,8 @@ void AForm::execute(Bureaucrat const & executor) const
 
 std::ostream& operator<<(std::ostream &out, const AForm &f)
 {
-	out << "Form: " << f.getName() << " is " << (f.getSigned() ? "signed" : "not signed") << "/n"
-		<< ", grade to sing: " << f.getGrade() << "/n"
-		<< ", grade to execute:  " << f.getExecuteGrade() << std::endl;
+	out << "Form: " << f.getName() << " is " << (f.getSigned() ? "signed" : "not signed")
+		<< ", grade to sign: " << f.getGrade()
+		<< ", grade to execute: " << f.getExecuteGrade() << std::endl;
 	return out;
 }

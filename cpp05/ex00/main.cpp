@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Bureaucrat.hpp"
 
 int main() {
@@ -23,6 +22,25 @@ int main() {
         std::cout << bob2 << std::endl;
         bob2.gradeGoDown();
         std::cout << bob2 << std::endl;
+        std::cout << bob2 << ", is a hardworking bureaucrat!" << std::endl;
+    } catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
+    }
+    try{
+        std::cout << "-------testing Bob3-------" << std::endl;
+        Bureaucrat bob3("Bob3", 150);
+        std::cout << bob3 << std::endl;
+        bob3.gradeGoDown();
+        std::cout << bob3 << std::endl;
+    } catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
+    }
+    try{
+        std::cout << "-------testing Bob4-------" << std::endl;
+        Bureaucrat bob4("Bob4", 1);
+        std::cout << bob4 << std::endl;
+        bob4.gradeGoUp();
+        std::cout << bob4 << std::endl;
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
     }

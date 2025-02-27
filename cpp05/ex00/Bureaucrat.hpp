@@ -23,11 +23,11 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat &copy);
 		//setter and getter
 		std::string getName() const;
-		int getGrade() const;
+		int 		getGrade() const;
 
 		// functions
-		void gradeGoUp();
-		void gradeGoDown();
+		void 		gradeGoUp();
+		void 		gradeGoDown();
 
 		// Exception classes
 		/* what() is a member func of std::exception and with the override keyword, it overrides the what() with the either of these exception

@@ -48,8 +48,8 @@ void Bureaucrat::gradeGoUp()
 	std::cout << "Attempt to increase grade by 1pt" << std::endl;
 	if (_grade - 1 < 1)
 		throw Bureaucrat::GradeTooHighException();
-	_grade--;
 	std::cout << "Grade up by 1 pt" << std::endl;
+	_grade--;
 }
 
 void Bureaucrat::gradeGoDown()
@@ -57,8 +57,8 @@ void Bureaucrat::gradeGoDown()
 	std::cout << "Attempt to decrease grade by 1pt" << std::endl;
 	if (_grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
-	_grade++;
 	std::cout << "Grade down by 1 pt" << std::endl;
+	_grade++;
 }
 
 void Bureaucrat::signForm(AForm& f)

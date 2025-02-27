@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
@@ -28,7 +27,7 @@ int main() {
         std::cout << john << std::endl;
         john.gradeGoDown();
         std::cout << john << std::endl;
-        sheet.beSigned(john);
+        john.signForm(sheet);
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
     }

@@ -70,8 +70,8 @@ int Form::getExecuteGrade() const
 
 std::ostream& operator<<(std::ostream &out, const Form &f)
 {
-	out << "Form: " << f.getName() << " is " << (f.getSigned() ? "signed" : "not signed") << "\n"
-		<< "grade to sign: " << f.getGrade() << "\n"
-		<< "grade to execute:  " << f.getExecuteGrade() << std::endl;
+	out << "Form: " << f.getName() << " is " << (f.getSigned() ? "signed," : "not signed,")
+		<< "grade to sign: " << f.getGrade()
+		<< ", grade to execute: " << f.getExecuteGrade() << std::endl;
 	return out;
 }

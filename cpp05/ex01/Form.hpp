@@ -20,13 +20,15 @@ class Form
 		Form(std::string name, int gradeToSign, int gradeToExecute);
 		Form(const Form &copy);
 		~Form();
+
 		//assignement operator
 		Form& operator=(const Form &copy);
+
 		//setter and getter
 		std::string getName() const;
-		bool getSigned() const;
-		int getGrade() const;
-		int getExecuteGrade() const;
+		bool 		getSigned() const;
+		int 		getGrade() const;
+		int 		getExecuteGrade() const;
 
 		//functions
 		void beSigned(const Bureaucrat &b);
