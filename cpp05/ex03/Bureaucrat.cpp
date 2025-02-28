@@ -61,26 +61,36 @@ void Bureaucrat::gradeGoDown()
 	_grade++;
 }
 
-void Bureaucrat::signForm(AForm& f)
+void Bureaucrat::signForm(AForm *f)
 {
-	f.beSigned(*this);
-	if (f.getSigned()) { 
-		std::cout << _name << " signed " << f.getName() <<std::endl;
+	if (!f)
+	{
+		std::cout << "Form doesn't exist" << std::endl;
+		return ;
+	}
+	f->beSigned(*this);
+	if (f->getSigned()) { 
+		std::cout << _name << " signed " << f->getName() <<std::endl;
 	} else {
-		std::cout << _name << " cannot sign " << f.getName() << " because grades too low" << std::endl;
+		std::cout << _name << " cannot sign " << f->getName() << " because grades too low" << std::endl;
 	}
 }
 
-void Bureaucrat::executeForm(AForm const & form)
+void Bureaucrat::executeForm(AForm *form)
 {
+	if (!form)
+	{
+		std::cout << "Form doesn't exist" << std::endl;
+		return ;
+	}
 	try
 	{
-		form.execute(*this);
-		std::cout << getName() << " executed " << form.getName() << std::endl;
+		form->execute(*this);
+		std::cout << getName() << " executed " << form->getName() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << "Execution of form '" << form.getName() << " by " << getName() << " failed: " << e.what() << std::endl;
+		std::cerr << "Execution of form '" << form->getName() << " by " << getName() << " failed: " << e.what() << std::endl;
 		return;
 	}
 }

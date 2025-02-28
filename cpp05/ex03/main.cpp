@@ -16,17 +16,18 @@ int main() {
         Bureaucrat jeff("Jeff", 43);
         std::cout << YELLOW_BG << "   ----- a wild intern apeared and trying to make form -----  " << RESET << std::endl;
         form = jeremy.makeForm("Shrubbery Creation Form", "home");
+        form = jeremy.makeForm(" Creation Form", "home");
         form2 = jeremy.makeForm("Visa Request Form", "robot");
         form2 = jeremy.makeForm("Robotomy Request Form", "robot");
         std::cout << YELLOW_BG << "   ----- John and Jeff signing forms attempt 1 -----  " << RESET << std::endl;
-        john.signForm(*form2);
-        jeff.signForm(*form);
+        john.signForm(form2);
+        jeff.signForm(form);
         std::cout << YELLOW_BG << "   ----- John and Jeff signing forms attempt 2 -----  " << RESET << std::endl;
-        john.signForm(*form);
-        jeff.signForm(*form2);
+        john.signForm(form);
+        jeff.signForm(form2);
         std::cout << YELLOW_BG << "   ----- John and Jeff executing forms -----  " << RESET << std::endl;
-        john.executeForm(*form);
-        jeff.executeForm(*form2);
+        john.executeForm(form);
+        jeff.executeForm(form2);
         delete form;
         delete form2;
     } catch (std::exception &e)

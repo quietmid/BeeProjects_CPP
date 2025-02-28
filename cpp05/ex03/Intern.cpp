@@ -3,9 +3,13 @@
 Intern::Intern()
 {
 	// std::cout << "Intern Default Constructor Called" << std::endl;
-	formCreate["Shrubbery Creation Form"] = [](std::string target) -> AForm* { return new ShrubberyCreationForm(target); };
-	formCreate["Robotomy Request Form"] = [](std::string target) -> AForm* { return new RobotomyRequestForm(target); };
-	formCreate["Presidential Pardon Form"] = [](std::string target) -> AForm* { return new PresidentialPardonForm(target); };
+	_forms[0] = "Shrubbery Creation Form";
+	_forms[1] = "Robotomy Request Form";
+	_forms[2] = "Presidential Pardon Form";
+
+	_formCreate[0] = &Intern::makeShrubbery;
+	_formCreate[1] = &Intern::makeRobotomy;
+	_formCreate[2] = &Intern::makePresidential;
 }
 
 Intern::Intern(const Intern &copy)
@@ -28,15 +32,32 @@ Intern& Intern::operator=(const Intern &copy)
 
 AForm* Intern::makeForm(std::string formName, std::string target)
 {
-	std::map<std::string, AForm* (*)(std::string)>::iterator form = formCreate.find(formName);
-	if (form != formCreate.end())
+	AForm* form = NULL;
+
+	for (int i = 0; i < 3; i++)
 	{
-		std::cout << "Intern creates " << formName << std::endl;
-		return form->second(target);
+		if (formName == _forms[i])
+		{
+			form = (this->*_formCreate[i])(target);
+			std::cout << "Intern creates " << formName << std::endl;
+		}
 	}
-	else
-	{
+	if (!form)
 		std::cout << "Error: Form: " << formName << " can't be found" <<std::endl;
-		return NULL;
-	}
+	return form;
+}
+
+AForm* Intern::makeShrubbery(std::string target)
+{
+	return new ShrubberyCreationForm(target);
+}
+
+AForm* Intern::makeRobotomy(std::string target)
+{
+	return new RobotomyRequestForm(target);
+}
+
+AForm* Intern::makePresidential(std::string target)
+{
+	return new PresidentialPardonForm(target);
 }
