@@ -9,6 +9,7 @@ int main() {
     // AForm form;
     // AForm form("Form", 1, 1);
     // check if ShrubbberyCreationForm is concrete and it can be instantiated?
+    srand(time(0));
 try {
         std::cout << YELLOW_BG << "-----ShrubberyCreationForm-----" << RESET << std::endl;
         Bureaucrat john("John", 139);
@@ -25,11 +26,16 @@ try {
         Bureaucrat robert("Robert", 35);
         std::cout << robert << std::endl;
         RobotomyRequestForm robot("robot");
+        RobotomyRequestForm robot2("robot2");
+        std::cout << robot2 << std::endl;
         std::cout << robot;
         jane.signForm(robot);
+        jane.signForm(robot2);
         jane.executeForm(robot);
+        jane.executeForm(robot2);
         std::cout << YELLOW_BG << "     ---- but Robert has a higher grade ----" << RESET << std::endl;
         robert.executeForm(robot);
+        robert.executeForm(robot2);
         std::cout << YELLOW_BG << "-----PresidentialPardonForm-----" << RESET << std::endl;
         Bureaucrat donald("Trumpf", 7);
         std::cout << donald << std::endl;

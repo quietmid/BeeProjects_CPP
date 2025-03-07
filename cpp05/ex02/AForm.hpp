@@ -63,6 +63,6 @@ class AForm
 				}
 		};
 
-	//the friend keyword, the operator<< function is allowed to access the private members of the Form class, so enable the function to print out all the info 
-	friend std::ostream& operator<<(std::ostream &out, const AForm &f);
 };
+
+std::ostream& operator<<(std::ostream &out, const AForm &f);

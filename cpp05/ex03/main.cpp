@@ -7,7 +7,7 @@
 #include "PresidentialPardonForm.hpp"
 
 int main() {
-
+    srand(time(0));
     try {
         Intern jeremy;
         AForm *form;
@@ -19,6 +19,8 @@ int main() {
         form = jeremy.makeForm(" Creation Form", "home");
         form2 = jeremy.makeForm("Visa Request Form", "robot");
         form2 = jeremy.makeForm("Robotomy Request Form", "robot");
+        std::cout << *form2 << std::endl;
+        // std::cout << *form << std::endl;
         std::cout << YELLOW_BG << "   ----- John and Jeff signing forms attempt 1 -----  " << RESET << std::endl;
         john.signForm(form2);
         jeff.signForm(form);
