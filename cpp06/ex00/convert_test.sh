@@ -29,5 +29,8 @@ run_test "1.00000000000f" "type: Float"
 run_test "a" "type: Char"
 run_test "a.a" "type: Invalid Input"
 run_test "2147483648" "type: Invalid Input"
+run_test "2147483647" "type: Int"
+run_test "-2147483649" "type: Invalid Input"
+run_test "-2147483647" "type: Int"
 
 echo "🎉 All tests passed!"
