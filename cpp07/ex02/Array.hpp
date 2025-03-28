@@ -21,7 +21,11 @@ template <typename T> class Array {
 		{
 			std::cout << "Copy constructor called" << std::endl;
 			_array = NULL;
-			*this = copy;
+			_array = new T[_size];
+			for (int i = 0; i < _size; i++)
+			{
+				_array[i] = copy[i];
+			}
 		}
 	// Destructor
 	~Array()
@@ -31,4 +35,21 @@ template <typename T> class Array {
 			delete[] _array;
 	}
 	//Operator
+	Array &operator=(const Array &copy)
+	{
+		if (_array != NULL)
+			delete [] _array;
+		if (copy.size() != 0)
+		{
+			_size = copy.size();
+			_array = new T[_size];
+			for (unsigned int i = 0; i < _size; i++)
+			{
+				_array[i] = copy._array[i];
+			}
+		}
+		else
+			_array = nullptr;
+		return (*this);
+	}
 };
