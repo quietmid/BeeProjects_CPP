@@ -188,8 +188,10 @@ void ScalarConverter::convert(const std::string &str)
 	}
 	if (!isSpecial)
 	{
-		if (_c < 32 || _c > 126)
+		if (_i < 32 && _i > -1)
 			std::cout << "char: Non displayable" << std::endl;
+		else if (_i > 126 || _i < 0)
+			std::cout << "char: Impossible" << std::endl;
 		else
 			std::cout << "char: " << _c << std::endl;
 		std::cout << "int: " << _i << std::endl;

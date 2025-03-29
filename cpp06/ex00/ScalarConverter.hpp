@@ -26,13 +26,12 @@ class ScalarConverter
 {
 	private:
 		ScalarConverter();
-
-		static type getType(const std::string str);
-	public:
 		ScalarConverter(const std::string &str);
 		ScalarConverter(const ScalarConverter &copy);
 		~ScalarConverter();
 
+		static type getType(const std::string str);
+	public:
 		static void convert(const std::string &str);
 };
 	
