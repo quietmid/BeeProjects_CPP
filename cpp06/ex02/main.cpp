@@ -4,20 +4,20 @@
 
 Base* generate(void)
 {
-	Base* base = nullptr;
-
 	//seeding the random number generator with the current time to ensure randomness
 	// srand(time(0));
-
-	int random = 1 + (rand() % 9);
-	// std::cout << "Random number: " << random << std::endl;
-	if (random < 4)
-		base = new BaseA();
-	else if (random > 3 && random < 7)
-		base = new BaseB();
-	else
-		base = new BaseC();
-	return base;
+	int random = rand() % 3;
+    switch (random)
+    {
+        case 0:
+            return new BaseA();
+        case 1:
+            return new BaseB();
+        case 2:
+            return new BaseC();
+        default:
+            return nullptr; // just in case, though it should never hit this
+    }
 }
 
 void identify(Base* pointer)

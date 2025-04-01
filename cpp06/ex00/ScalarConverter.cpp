@@ -192,8 +192,14 @@ void ScalarConverter::convert(const std::string &str)
 			std::cout << "char: Non displayable" << std::endl;
 		else
 			std::cout << "char: " << _c << std::endl;
-		std::cout << "int: " << _i << std::endl;
-		std::cout << std::fixed << std::setprecision(2) << "float: " << _f << "f" << std::endl;
+		if (_d > MAX_INT || _d < MIN_INT)
+			std::cout << "int: impossible" << std::endl;
+		else
+			std::cout << "int: " << _i << std::endl;
+		if (_d > MAX_FLOAT || _d < MIN_FLOAT)
+			std::cout << "float: impossbile" << std::endl;
+		else
+			std::cout << std::fixed << std::setprecision(2) << "float: " << _f << "f" << std::endl;
 		std::cout << std::fixed << std::setprecision(2) << "double: " << _d << std::endl;
 	}
 	else if (t == 5)
