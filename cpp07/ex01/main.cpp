@@ -31,7 +31,7 @@ int main()
 	iter(intArray, 5, printInt);
 	std::cout << "------------------------" << std::endl;
 	std::cout << "String Array: " << std::endl;
-	std::string strArray[] = {"Hello", "World", "skzzzzz", "joobbbbb", "skzzzzzz"};
+	std::string strArray[] = {"Hello", "World", "skzzzzz", "jObbbbb", "tyrwqq"};
 	iter(strArray, 5, printStrIfVowel);
 	return 0;
 }

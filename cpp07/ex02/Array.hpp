@@ -52,4 +52,10 @@ template <typename T> class Array {
 			_array = nullptr;
 		return (*this);
 	}
+	
+	// still need subscript operator []
+
+	unsigned int size() const {
+		return _size;
+	}
 };
