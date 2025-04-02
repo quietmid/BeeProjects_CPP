@@ -191,7 +191,7 @@ void ScalarConverter::convert(const std::string &str)
 		if (_i < 32 && _i > -1)
 			std::cout << "char: Non displayable" << std::endl;
 		else if (_i > 126 || _i < 0)
-			std::cout << "char: Impossible" << std::endl;
+			std::cout << "char: impossible" << std::endl;
 		else
 			std::cout << "char: " << _c << std::endl;
 		if (_d > MAX_INT || _d < MIN_INT)
