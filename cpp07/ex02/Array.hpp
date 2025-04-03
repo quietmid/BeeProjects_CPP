@@ -1,4 +1,5 @@
 #pragma once
+#include <exception>
 
 template <typename T> class Array {
 	private:
@@ -20,11 +21,10 @@ template <typename T> class Array {
 		Array(Array const &copy): _size(copy.size())
 		{
 			std::cout << "Copy constructor called" << std::endl;
-			_array = NULL;
 			_array = new T[_size];
-			for (int i = 0; i < _size; i++)
+			for (unsigned int i = 0; i < _size; i++)
 			{
-				_array[i] = copy[i];
+				_array[i] = copy._array[i];
 			}
 		}
 	// Destructor
@@ -37,24 +37,28 @@ template <typename T> class Array {
 	//Operator
 	Array &operator=(const Array &copy)
 	{
-		if (_array != NULL)
-			delete [] _array;
-		if (copy.size() != 0)
+		if (this == &copy)
+			return *this;
+
+		delete [] _array;
+
+		_size = copy.size();
+		_array = new T[_size];
+		for (unsigned int i = 0; i < _size; i++)
 		{
-			_size = copy.size();
-			_array = new T[_size];
-			for (unsigned int i = 0; i < _size; i++)
-			{
-				_array[i] = copy._array[i];
-			}
+			_array[i] = copy._array[i];
 		}
-		else
-			_array = nullptr;
 		return (*this);
 	}
 	
 	// still need subscript operator []
-
+	T &operator[](unsigned int idx) 
+	{
+		if (idx >= _size)
+			throw std::out_of_range("Index out of ranges");
+		return _array[idx];
+	}
+	//member function that returns the number of elements in the array
 	unsigned int size() const {
 		return _size;
 	}
