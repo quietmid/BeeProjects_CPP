@@ -17,6 +17,7 @@ template <typename T> class Array {
 				_array = nullptr;
 			else
 				_array = new T[n];
+			std::cout << "Parametric constructor called" << std::endl;
 		};
 		Array(Array const &copy): _size(copy.size())
 		{
