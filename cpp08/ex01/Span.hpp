@@ -26,7 +26,8 @@ class Span
 		int shortestSpan() const;
 		int longestSpan() const;
 
-		void addMultiNumber();
+		template <typename InputIterator>
+		void addMultiNumbers(InputIterator begin, InputIterator end);
 
 		void printVect() const;
 };

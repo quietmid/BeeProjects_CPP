@@ -74,9 +74,14 @@ int Span::longestSpan() const
 	return maxVal - minVal;
 }
 
-void Span::addMultiNumbers(unsigned int y)
+template<typename InputIterator>
+void Span::addMultiNumbers(InputIterator begin, InputIterator end)
 {
-	
+    size_t distance = std::distance(begin, end);
+    if (_vect.size() + distance > _n)
+        throw std::out_of_range("Can't add these many numbers");
+    _vect.insert(_vect.end(), begin, end);
+	//insert is more efficent, cleaner.
 }
 
 //extra
