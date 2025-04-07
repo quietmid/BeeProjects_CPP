@@ -33,6 +33,7 @@ Span& Span::operator=(const Span& copy)
 	return (*this);
 }
 
+//member functions
 void Span::addNumber(int x)
 {
 	if (this->_vect.size() >= this->_n)
@@ -40,6 +41,45 @@ void Span::addNumber(int x)
 	this->_vect.push_back(x);
 }
 
+int Span::shortestSpan() const
+{
+	if (_vect.size() == 1 || _vect.empty())
+		throw std::out_of_range("There is not enough in the Span to find the shortest span");
+	std::vector<int> temp = _vect;
+	int diff = MAX_INT;
+	std::sort(temp.begin(), temp.end());
+	// std::cout << "Printing temp: ";
+	// for (size_t i = 0; i < temp.size(); i++)
+	// {
+	// 	std::cout << temp[i];
+	// 	if (i != temp.size() - 1)
+	// 		std::cout << ", ";
+	// }
+	// std::cout << std::endl;
+	for (size_t i = temp.size() - 1; i > 0; i--)
+	{
+		if (diff > temp[i] - temp[i - 1])
+			diff = temp[i] - temp[i - 1];
+	}
+	return diff;
+}
+
+int Span::longestSpan() const
+{
+	if (_vect.size() == 1 || _vect.empty())
+		throw std::out_of_range("There is not enough in the Span to find the shortest span");
+	int minVal = *std::min_element(_vect.begin(), _vect.end());
+	int maxVal = *std::max_element(_vect.begin(), _vect.end());
+
+	return maxVal - minVal;
+}
+
+void Span::addMultiNumbers(unsigned int y)
+{
+	
+}
+
+//extra
 void Span::printVect() const
 {
 	if (_vect.empty())

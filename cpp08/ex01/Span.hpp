@@ -1,8 +1,13 @@
 #pragma once
 
 #include <vector>
+#include <algorithm>
 #include <stdexcept>
 #include <iostream>
+#include <limits>
+
+# define MIN_INT std::numeric_limits<int>::min() //-2147483648
+# define MAX_INT std::numeric_limits<int>::max() //2147483647
 
 class Span 
 {
