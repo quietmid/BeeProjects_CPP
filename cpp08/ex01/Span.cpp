@@ -67,7 +67,7 @@ int Span::shortestSpan() const
 int Span::longestSpan() const
 {
 	if (_vect.size() == 1 || _vect.empty())
-		throw std::out_of_range("There is not enough in the Span to find the shortest span");
+		throw std::out_of_range("There is not enough in the Span to find the longest span");
 	int minVal = *std::min_element(_vect.begin(), _vect.end());
 	int maxVal = *std::max_element(_vect.begin(), _vect.end());
 

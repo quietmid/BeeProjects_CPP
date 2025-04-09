@@ -18,10 +18,9 @@ int main()
 	} catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
-
 	return 0;
 }
-//my own
+////my own
 // int main()
 // {
 // 	Span test(5);
@@ -75,5 +74,18 @@ int main()
 // 	// }
 // 	// std::cout << "shortest span is: " << test4.shortestSpan() << std::endl;
 // 	// std::cout << "longest span is: " << test4.longestSpan() << std::endl;
+// 	Span edgeCase(3);
+// 	try {
+// 		edgeCase.shortestSpan();
+// 	} catch (const std::exception& e) {
+// 		std::cerr << e.what() << std::endl;
+// 	}
+
+// 	try {
+// 		edgeCase.addNumber(42);
+// 		edgeCase.longestSpan();
+// 	} catch (const std::exception& e) {
+// 		std::cerr << e.what() << std::endl;
+// 	}
 // 	return 0;
 // }
