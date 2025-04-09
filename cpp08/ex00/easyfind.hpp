@@ -1,9 +1,7 @@
 #pragma once
-#include <iostream>
+
 #include <algorithm>
 #include <exception>
-#include <iterator>
-
 
 class valueNotFound : public std::exception 
 {
