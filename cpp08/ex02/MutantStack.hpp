@@ -2,7 +2,6 @@
 
 #include <stack>
 #include <deque>
-#include <iostream>
 
 
 template <typename T, typename D = std::deque<T>>

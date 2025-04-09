@@ -1,4 +1,5 @@
 #include "MutantStack.hpp"
+#include <iostream>
 #include <list>
 
 int main()
@@ -25,7 +26,15 @@ int main()
             std::cout << *it << std::endl;
             ++it;
         }
-        std::stack<int> s(mstack);
+        MutantStack<int> s(mstack);
+        MutantStack<int>::reverse_iterator rit = s.rbegin();
+        MutantStack<int>::reverse_iterator rite = s.rend();
+        std::cout << "Reverse iteration: " << std::endl;
+        while (rit != rite)
+        {
+            std::cout << *rit << std::endl;
+            ++rit;
+        }
     }
     {
         std::cout << "List testing" << std::endl;
@@ -50,16 +59,16 @@ int main()
             std::cout << *it << std::endl;
             ++it;
         }
-        // std::list<int>::reverse_iterator rev_it = list.rbegin();
-        // std::list<int>::reverse_iterator rev_ite = list.rend();
-        // ++rev_it;
-        // --rev_it;
-        // std::cout << "End to beginning: " << std::endl;
-        // while (rev_it != rev_ite)
-        // {
-        //     std::cout << *rev_it << std::endl;
-        //     ++rev_it;
-        // }
+        std::list<int>::reverse_iterator rev_it = list.rbegin();
+        std::list<int>::reverse_iterator rev_ite = list.rend();
+        ++rev_it;
+        --rev_it;
+        std::cout << "End to beginning: " << std::endl;
+        while (rev_it != rev_ite)
+        {
+            std::cout << *rev_it << std::endl;
+            ++rev_it;
+        }
     }
     return 0;
 }
