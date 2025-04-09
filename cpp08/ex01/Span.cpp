@@ -48,14 +48,6 @@ int Span::shortestSpan() const
 	std::vector<int> temp = _vect;
 	int diff = MAX_INT;
 	std::sort(temp.begin(), temp.end());
-	// std::cout << "Printing temp: ";
-	// for (size_t i = 0; i < temp.size(); i++)
-	// {
-	// 	std::cout << temp[i];
-	// 	if (i != temp.size() - 1)
-	// 		std::cout << ", ";
-	// }
-	// std::cout << std::endl;
 	for (size_t i = temp.size() - 1; i > 0; i--)
 	{
 		if (diff > temp[i] - temp[i - 1])
@@ -73,16 +65,6 @@ int Span::longestSpan() const
 
 	return maxVal - minVal;
 }
-
-// template<typename InputIterator>
-// void Span::addMultiNumbers(InputIterator begin, InputIterator end)
-// {
-//     size_t distance = std::distance(begin, end);
-//     if (_vect.size() + distance > _n)
-//         throw std::out_of_range("Can't add these many numbers");
-//     _vect.insert(_vect.end(), begin, end);
-// 	//insert is more efficent, cleaner.
-// }
 
 //extra
 void Span::printVect() const
