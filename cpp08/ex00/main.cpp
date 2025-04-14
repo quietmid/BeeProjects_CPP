@@ -4,7 +4,6 @@
 #include <vector>
 #include <deque>
 
-#define MAX_VAL 10
 int main()
 {
     std::cout << "---- Testing Vector-----" << std::endl;

@@ -31,6 +31,7 @@ class Span
 		
 		void printVect() const;
 };
+
 //define template as .tpp is not allowed
 template <typename InputIterator>
 void Span::addMultiNumbers(InputIterator begin, InputIterator end)
@@ -39,5 +40,5 @@ void Span::addMultiNumbers(InputIterator begin, InputIterator end)
 	if (_vect.size() + distance > _n)
 		throw std::out_of_range("Can't add these many numbers");
 	_vect.insert(_vect.end(), begin, end);
-	//insert is more efficent, cleaner.
+	//insert is more efficent, cleaner than .push_back()
 }
