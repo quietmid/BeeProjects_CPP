@@ -12,7 +12,13 @@ int main(int argc, char** argv)
 	//initialize btcExchange
 	btcExchange btc;
 		//load database
-	btc.getValue(argv[1]);
-	//calculate rates
+	try {
+		//calculate rates
+		btc.getValue(argv[1]);
+	} catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+		
 	return 0;
 }

@@ -28,8 +28,10 @@ static bool isValidDate(const std::string& date) {
 
     // You can also check if the parts are digits
     for (size_t i = 0; i < date.size(); ++i) {
-        if (i == 4 || i == 7) continue;
-        if (!std::isdigit(date[i])) return false;
+        if (i == 4 || i == 7) 
+            continue;
+        if (!std::isdigit(date[i])) 
+            return false;
     }
     // Extract year, month, and day
     int year = std::stoi(date.substr(0, 4));
@@ -37,8 +39,10 @@ static bool isValidDate(const std::string& date) {
     int day = std::stoi(date.substr(8, 2));
 
     // Validate real date
-    if (day < 1 || day > 31) return false;
-    if (month < 1 || month > 12) return false;
+    if (day < 1 || day > 31) 
+        return false;
+    if (month < 1 || month > 12) 
+        return false;
 
     // April, June, September, November have max 30 days
     if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
