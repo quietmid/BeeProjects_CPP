@@ -2,23 +2,23 @@
 
 rpn::rpn()
 {
-    std::cout << "RPN constructor called" << std::endl;
+    // std::cout << "RPN constructor called" << std::endl;
 }
 
 rpn::rpn(const rpn &copy)
 {
-    std::cout << "RPN copy constructor called" << std::endl;
+    // std::cout << "RPN copy constructor called" << std::endl;
     *this = copy;
 }
 
 rpn::~rpn()
 {
-    std::cout << "RPN destructor called" << std::endl;
+    // std::cout << "RPN destructor called" << std::endl;
 }
 
 rpn& rpn::operator=(const rpn& copy)
 {
-    std::cout << "RPN = operator called" << std::endl;
+    // std::cout << "RPN = operator called" << std::endl;
     if (this != &copy)
     {
         this->_numbers = copy._numbers;
@@ -27,142 +27,56 @@ rpn& rpn::operator=(const rpn& copy)
     return (*this);
 }
 
-
-// void rpn::checkInput(const std::string &input)
-// {
-//     int operandCount = 0;
-//     for (size_t i = 0; i < input.size(); i++) 
-//     {
-//         char ch = input[i];
-
-//         if (std::isspace(ch))
-//             continue;
-//                     // Check if the character is a digit
-//         if (std::isdigit(ch)) 
-//         {
-//             int number = ch - '0'; // Convert char to int
-//             if (number > 10) {
-//                 throw valueTooHigh();
-//             }
-//             addNumber(number);
-//             operandCount++;
-//         }
-//         // Check if the character is a valid operator
-//         else if (ch == '+' || ch == '-' || ch == '*' || ch == '/') 
-//         {
-//             if (operandCount < 2)
-//                 throw invalidRpnInput();
-//             addOperator(ch);
-//             operandCount--;
-//         }
-//         // If the character is invalid, throw an exception
-//         else {
-//             throw invalidOperators();
-//         }
-//     }
-//     if (operandCount != 1)
-//         throw invalidRpnInput();
-// }
-
-// void rpn::addNumber(int x)
-// {
-//     _numbers.push(x);
-// }
-
-// void rpn::addOperator(char y)
-// {
-//     _operators.push(y);
-// }
-
 int rpn::revPolishNotation(const std::string &input)
 {
+    std::istringstream iss(input); // Token-based parsing
+    std::string token;
     int operandCount = 0;
-    for (size_t i = 0; i < input.size(); i++) 
-    {
-        char ch = input[i];
 
-        if (std::isspace(ch))
-            continue;
-                    // Check if the character is a digit
-        if (std::isdigit(ch)) 
+    while (iss >> token)
+    {
+        // Check if token is a number
+        if (std::all_of(token.begin(), token.end(), ::isdigit))
         {
-            int number = ch - '0'; // Convert char to int
-            if (number > 10) {
+            int number = std::stoi(token);
+            if (number >= 10) // Catch numbers >= 10
                 throw valueTooHigh();
-            }
+
             _numbers.push(number);
             operandCount++;
         }
-        // Check if the character is a valid operator
-        else if (ch == '+' || ch == '-' || ch == '*' || ch == '/') 
+        // Check if token is a valid operator
+        else if (token == "+" || token == "-" || token == "*" || token == "/")
         {
             if (operandCount < 2)
                 throw invalidRpnInput();
-            int b = _numbers.top();
-            _numbers.pop();
-            int a = _numbers.top();
-            _numbers.pop();
+
+            int b = _numbers.top(); _numbers.pop();
+            int a = _numbers.top(); _numbers.pop();
 
             int result;
-            switch(ch)
+            if (token == "+") result = a + b;
+            else if (token == "-") result = a - b;
+            else if (token == "*") result = a * b;
+            else if (token == "/")
             {
-                case '+': result = a + b; break;
-                case '-': result = a - b; break;
-                case '*': result = a * b; break;
-                case '/':
-                    if (b == 0)
-                        throw std::runtime_error("division by zero");
-                    result = a / b;
-                    break;
-                default:
-                    throw invalidOperators();
+                if (b == 0)
+                    throw std::runtime_error("division by zero");
+                result = a / b;
             }
+
             _numbers.push(result);
             operandCount--;
         }
-        // If the character is invalid, throw an exception
-        else {
-            throw invalidOperators();
+        else
+        {
+            throw invalidOperators(); // Invalid token (e.g., letters, symbols)
         }
     }
+
     if (operandCount != 1)
         throw invalidRpnInput();
+
     return _numbers.top();
 }
 
-
-void rpn::printNums()
-{
-    std::stack<int> temp = _numbers;
-    std::cout << "[";
-    while(!temp.empty())
-    {
-        std::cout << temp.top();
-        temp.pop();
-        if (!temp.empty())
-            std::cout << ", ";
-    }
-    std::cout << "]" << std::endl;
-}
-
-void rpn::printOps()
-{
-    std::stack<char> temp = _operators;
-    std::stack<char> reversed;
-
-    // Transfer elements from the original stack to the reversed stack
-    while (!temp.empty()) {
-        reversed.push(temp.top());
-        temp.pop();
-    }
-
-    std::cout << "[";
-    while(!reversed.empty())
-    {
-        std::cout << reversed.top();
-        reversed.pop();
-        if (!reversed.empty())
-            std::cout << ", ";
-    }
-    std::cout << "]" << std::endl;
-}

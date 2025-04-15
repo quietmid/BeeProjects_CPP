@@ -1,9 +1,13 @@
 #pragma once
 
-#include <iostream>
+// #include <iostream>
 #include <stack>
 #include <limits>
+#include <sstream>
+#include <algorithm>
+#include <string>
 #include <exception>
+#include <cctype>
 
 # define MIN_INT std::numeric_limits<int>::min() //-2147483648
 
@@ -42,14 +46,6 @@ class rpn
         ~rpn();
 
         rpn &operator=(const rpn& copy);
-
-        // void checkInput(const std::string &input);
-        // void addNumber(int x);
-        // void addOperator(char y);
         int revPolishNotation(const std::string &input);
-
-
-        void printNums();
-        void printOps();
 };
 
