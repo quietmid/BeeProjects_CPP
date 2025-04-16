@@ -5,7 +5,7 @@ rpn::rpn()
     // std::cout << "RPN constructor called" << std::endl;
 }
 
-rpn::rpn(const rpn &copy)
+rpn::rpn(const rpn& copy)
 {
     // std::cout << "RPN copy constructor called" << std::endl;
     *this = copy;
