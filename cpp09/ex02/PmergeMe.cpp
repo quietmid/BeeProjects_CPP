@@ -50,11 +50,6 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& copy)
     return (*this);
 }
 
-void PmergeMe::setNum(int x)
-{
-    this->_numOfEle = x;
-}
-
 bool PmergeMe::checkInput(char** input)
 {
     std::vector<int> elements;
@@ -80,6 +75,44 @@ bool PmergeMe::checkInput(char** input)
     _numOfEle = elements.size();
     _elements = elements;
     return true;
+}
+
+void PmergeMe::sortVector()
+{
+    if (_elements.size() <= 1)
+        return;
+    vectMergeInsertSort(_elements);
+}
+
+void PmergeMe::vectMergeInsertSort(std::vector<int>& arr)
+{
+    if (arr.size() <= 1)
+        return;
+    
+    std::vector<int> A; //large element
+    std::vector<int> B; //small element
+
+    for (size_t i = 0; i + 1 < arr.size(); i += 2)
+    {
+        int first = arr[i];
+        int second = arr[i + 1];
+        if (first > second) {
+            A.push_back(first);
+            B.push_back(second);
+        } else {
+            A.push_back(second);
+            B.push_back(first);
+        }
+        // push the number to its respective stack
+    }
+    // the leftover element  (if odd number)
+    if (arr.size() % 2 != 0)
+        B.push_back(arr.back());
+    
+    // recursively sort the larger stack
+    vectMergeInsertSort(A);
+
+    //insert the smaller value in Jacobsthal order.
 }
 
 //extra

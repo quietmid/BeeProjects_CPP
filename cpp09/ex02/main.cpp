@@ -8,7 +8,10 @@ int main(int argc, char** argv)
     PmergeMe sorting;
 
     if (sorting.checkInput(argv))
+    {
+        std::cout << "Before: ";
         sorting.printVect();
+    }
     else
         std::cout << "Error" << std::endl;
     return 0;
