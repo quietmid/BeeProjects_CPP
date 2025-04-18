@@ -1,12 +1,13 @@
 #pragma once
 
-#include <iostream> // need to check if i need this
+#include <iostream>
 #include <sstream>
 #include <string>
 #include <vector>
 #include <climits>
 #include <cctype>
 #include <cstdlib>
+#include <chrono> // for time
 
 class PmergeMe
 {
@@ -15,6 +16,12 @@ class PmergeMe
         std::vector<int> _elements;
         std::deque<int> _values;
 
+        bool _vectSorted;
+        bool _dequeSorted;
+
+        double _durationVect;
+        double _durationDeque;
+
         void vectMergeInsertSort(std::vector<int>& arr);
         void vectBinaryInsert(std::vector<int>& sorted, int value);
         std::vector<int> vectGenJacobsthalInd(int n);
@@ -22,6 +29,8 @@ class PmergeMe
         void dequMergeInsertSort(std::deque<int>& arr);
         void dequBinaryInsert(std::deque<int>& sorted, int value);
         std::deque<int> dequGenJacobsthalInd(int n);
+
+        bool checkResult();
     public:
         PmergeMe();
         PmergeMe(const PmergeMe& copy);
@@ -33,4 +42,6 @@ class PmergeMe
         void sortDeque();
   
         void printVect() const;
+        void printDeque() const;
+        void printTime();
 };
