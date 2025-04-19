@@ -4,6 +4,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <deque>
 #include <climits>
 #include <cctype>
 #include <cstdlib>
